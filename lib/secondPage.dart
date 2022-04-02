@@ -3,9 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:personal_portfolio/firstPage.dart';
 
-class Description extends StatelessWidget {
+class Description extends StatefulWidget {
   const Description({Key? key}) : super(key: key);
 
+  @override
+  State<Description> createState() => _DescriptionState();
+}
+
+class _DescriptionState extends State<Description> {
   @override
   Widget build(BuildContext context) {
     return Column(

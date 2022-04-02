@@ -1,12 +1,21 @@
-// ignore_for_file: file_names, prefer_const_constructors
+// ignore_for_file: file_names, prefer_const_constructors, prefer_const_constructors_in_immutables, unused_local_variable, unused_element
+
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'secondPage.dart';
+import 'package:animate_do/animate_do.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
 
   static PageController pageController = PageController();
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     //Variables
@@ -17,8 +26,8 @@ class HomePage extends StatelessWidget {
         body:
             //First page column
             PageView(
-      controller: pageController,
-      physics: NeverScrollableScrollPhysics(),
+      controller: HomePage.pageController,
+      //  physics: NeverScrollableScrollPhysics(),
       scrollDirection: Axis.vertical,
       children: [
         Column(children: [
@@ -53,13 +62,21 @@ class HomePage extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: IconButton(
-                icon: const Icon(Icons.arrow_downward_rounded),
-                iconSize: 100,
+                icon: Transform.rotate(
+                    angle: 90 * pi / -180,
+                    child: Pulse(
+                        infinite: true,
+                        child: Icon(
+                          Icons.arrow_back_ios_new,
+                          color: Colors.white.withOpacity(0.3),
+                        ))),
+                iconSize: 30,
                 hoverColor: Colors.transparent,
                 splashColor: Colors.transparent,
                 onPressed: () {
-                  pageController.nextPage(
-                      duration: Duration(seconds: 1), curve: Curves.easeInOut);
+                  HomePage.pageController.nextPage(
+                      duration: Duration(seconds: 1),
+                      curve: Curves.fastOutSlowIn);
                 },
               ),
             )
