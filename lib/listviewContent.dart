@@ -27,5 +27,5 @@ List<String> images = [
   'dsuk.PNG',
   '2dPlatformer.gif',
   'dissertation.PNG',
-  'addPicture.png'
+  'dsuk.PNG'
 ];

@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             )
           ])),
         ]),
-        Expanded(child: Description()),
+        Description(),
         Column(
           children: const [Text('page 3')],
         )
