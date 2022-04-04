@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             //First page column
             PageView(
       controller: HomePage.pageController,
-      //  physics: NeverScrollableScrollPhysics(),
+      physics: NeverScrollableScrollPhysics(),
       scrollDirection: Axis.vertical,
       children: [
         Column(children: [
@@ -88,6 +88,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               key: secondPageKey,
             )
           ],
+        ),
+        Column(
+          children: const [Text('page 3')],
         )
       ],
     ));
