@@ -45,16 +45,21 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     alignment: Alignment.topCenter,
                     child: Text(
                       "Hi, I'm Alex",
-                      style: TextStyle(color: Colors.white, fontSize: 70),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: media.width > 600 ? 70 : 40),
                     ))),
             Padding(
                 padding: EdgeInsets.only(
                   top: media.height * 0.5,
                 ),
-                child: const Center(
+                child: Center(
                     child: Text(
                   "Software Developer",
-                  style: TextStyle(color: Colors.white, fontSize: 30),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: media.width > 600 ? 30 : 20,
+                  ),
                 ))),
             const SizedBox(
               height: 50,
@@ -75,20 +80,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 splashColor: Colors.transparent,
                 onPressed: () {
                   HomePage.pageController.nextPage(
-                      duration: Duration(seconds: 1),
-                      curve: Curves.fastOutSlowIn);
+                      duration: Duration(seconds: 1), curve: Curves.easeInOut);
                 },
               ),
             )
           ])),
         ]),
-        Column(
-          children: [
-            Description(
-              key: secondPageKey,
-            )
-          ],
-        ),
+        Expanded(child: Description()),
         Column(
           children: const [Text('page 3')],
         )
