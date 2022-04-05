@@ -10,22 +10,27 @@ String dissertation =
 String phoney =
     'This is a 2D platformer that I wanted to develop by learning a new skill which is developing with Godot. This engine makes use of its own programming language, GD Script, which is similar to Python. This is still a work in progress. The idea behind it is that you are a phone that has to fight with social media to prevent your battery from being drained.';
 
+String snakeAI =
+    'This project had been done during the Artificial Intelligence module. This is an automated snake game that plays itself and gets better with each generation by making use of a deep neural network.';
 List<String> descriptions = [
   dsuk,
   unityPlatformer,
   dissertation,
   phoney,
+  snakeAI
 ];
 
 List<String> titles = [
   'DSUK App',
   '2D Unity Platformer',
   'Cyber Training App',
-  'Adventure of Phoney'
+  'Adventure of Phoney',
+  'Automated Snake',
 ];
 List<String> images = [
   'dsuk.PNG',
   '2dPlatformer.gif',
   'dissertation.PNG',
-  'dsuk.PNG'
+  'dsuk.PNG',
+  'snake.gif',
 ];

@@ -31,51 +31,56 @@ class _DescriptionState extends State<Description> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Align(
-                      alignment: Alignment.center,
-                      child: IconButton(
-                        icon: Transform.rotate(
-                            angle: 90 * pi / 180,
-                            child: Pulse(
-                                infinite: false,
-                                child: Icon(
-                                  Icons.arrow_back_ios_new,
-                                  color: Colors.white,
-                                ))),
-                        iconSize: 30,
-                        hoverColor: Colors.transparent,
-                        splashColor: Colors.transparent,
-                        onPressed: () {
-                          HomePage.pageController.previousPage(
-                              duration: Duration(seconds: 1),
-                              curve: Curves.easeInOut);
-                        },
-                      )),
-                  Align(
-                      alignment: Alignment.centerLeft,
-                      child: IconButton(
-                        icon: Transform.rotate(
-                            angle: 90 * pi / -180,
-                            child: Pulse(
-                                infinite: false,
-                                child: Icon(
-                                  Icons.arrow_back_ios_new,
-                                  color: Colors.white,
-                                ))),
-                        iconSize: 30,
-                        hoverColor: Colors.transparent,
-                        splashColor: Colors.transparent,
-                        onPressed: () {
-                          HomePage.pageController.nextPage(
-                              duration: Duration(seconds: 1),
-                              curve: Curves.easeInOut);
-                        },
-                      )),
-                ],
-              ),
+              ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  child: Container(
+                      decoration:
+                          BoxDecoration(color: Colors.black.withOpacity(0.8)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Align(
+                              alignment: Alignment.center,
+                              child: IconButton(
+                                icon: Transform.rotate(
+                                    angle: 90 * pi / 180,
+                                    child: Pulse(
+                                        infinite: false,
+                                        child: Icon(
+                                          Icons.arrow_back_ios_new,
+                                          color: Colors.white,
+                                        ))),
+                                iconSize: 30,
+                                hoverColor: Colors.transparent,
+                                splashColor: Colors.transparent,
+                                onPressed: () {
+                                  HomePage.pageController.previousPage(
+                                      duration: Duration(seconds: 1),
+                                      curve: Curves.easeInOut);
+                                },
+                              )),
+                          Align(
+                              alignment: Alignment.centerLeft,
+                              child: IconButton(
+                                icon: Transform.rotate(
+                                    angle: 90 * pi / -180,
+                                    child: Pulse(
+                                        infinite: false,
+                                        child: Icon(
+                                          Icons.arrow_back_ios_new,
+                                          color: Colors.white,
+                                        ))),
+                                iconSize: 30,
+                                hoverColor: Colors.transparent,
+                                splashColor: Colors.transparent,
+                                onPressed: () {
+                                  HomePage.pageController.nextPage(
+                                      duration: Duration(seconds: 1),
+                                      curve: Curves.easeInOut);
+                                },
+                              )),
+                        ],
+                      ))),
 
               //
               //Lazy building the list using ListView.Builder
@@ -162,7 +167,7 @@ class _DescriptionState extends State<Description> {
                   //
                   //
                   : SizedBox(
-                      width: media.width,
+                      width: media.width * 0.8,
                       height: media.height,
                       child: ListView.builder(
                           itemCount: titles.length,
