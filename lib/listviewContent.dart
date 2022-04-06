@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 String dsuk =
     'This was a group project which involved Durham Constabulary as being the client. For this project I had to learn how to develop mobile application and this is when I found Flutter. The app was about information about drugs, areas in the North East that use drugs the most, a live chat functionality, a reporting system and many more! This project ended up in winning first place out of 5 other teams. I was the one responsible with coding the whole project.';
 
@@ -28,9 +30,9 @@ List<String> titles = [
   'Automated Snake',
 ];
 List<String> images = [
-  'dsuk.PNG',
-  '2dPlatformer.gif',
-  'dissertation.PNG',
-  'dsuk.PNG',
-  'snake.gif',
+  'assets/dsuk.PNG',
+  'assets/2dPlatformer.gif',
+  'assets/dissertation.PNG',
+  'assets/phoney.gif',
+  'assets/snake.gif',
 ];

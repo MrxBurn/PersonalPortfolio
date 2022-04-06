@@ -3,6 +3,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:personal_portfolio/thirdPage.dart';
 import 'secondPage.dart';
 import 'package:animate_do/animate_do.dart';
 
@@ -34,7 +35,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           Expanded(
               child: Stack(children: [
             const Image(
-              image: AssetImage('background.jpg'),
+              image: AssetImage('assets/background.jpg'),
               fit: BoxFit.fill,
               width: double.infinity,
               height: double.infinity,
@@ -73,7 +74,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         infinite: true,
                         child: Icon(
                           Icons.arrow_back_ios_new,
-                          color: Colors.white.withOpacity(0.3),
+                          color: Colors.white,
                         ))),
                 iconSize: 30,
                 hoverColor: Colors.transparent,
@@ -87,9 +88,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ])),
         ]),
         Description(),
-        Column(
-          children: const [Text('page 3')],
-        )
+        Contact(),
       ],
     ));
   }

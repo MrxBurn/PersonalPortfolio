@@ -24,7 +24,7 @@ class _DescriptionState extends State<Description> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('background.gif'), fit: BoxFit.cover)),
+              image: AssetImage('assets/background.gif'), fit: BoxFit.cover)),
       child: Column(
         children: [
           Row(
@@ -93,6 +93,7 @@ class _DescriptionState extends State<Description> {
                           itemCount: titles.length,
                           itemBuilder: ((context, index) {
                             return Card(
+                                elevation: 5,
                                 color: Colors.black.withOpacity(0.5),
                                 shape: RoundedRectangleBorder(
                                     borderRadius:
@@ -127,8 +128,12 @@ class _DescriptionState extends State<Description> {
                                                     child: Image(
                                                       image: AssetImage(
                                                           images[index]),
-                                                      height: 400,
-                                                      width: 500,
+                                                      height: media.width > 600
+                                                          ? 400
+                                                          : 300,
+                                                      width: media.width > 600
+                                                          ? 500
+                                                          : 400,
                                                       fit: BoxFit.fill,
                                                     )))),
 
@@ -170,45 +175,61 @@ class _DescriptionState extends State<Description> {
                       width: media.width * 0.8,
                       height: media.height,
                       child: ListView.builder(
+                          physics: BouncingScrollPhysics(),
                           itemCount: titles.length,
                           itemBuilder: ((context, index) {
-                            return ExpansionTile(
-                              initiallyExpanded: true,
-                              title: Text(titles[index]),
-                              children: [
-                                Column(
+                            return ClipRRect(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                                child: ExpansionTile(
+                                  collapsedBackgroundColor:
+                                      Colors.black.withOpacity(0.8),
+                                  textColor: Colors.white,
+                                  backgroundColor:
+                                      Colors.black.withOpacity(0.8),
+                                  initiallyExpanded: true,
+                                  title: Text(titles[index]),
                                   children: [
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                          bottom: 10,
-                                          right: 10,
+                                    Column(
+                                      children: [
+                                        Padding(
+                                            padding: EdgeInsets.only(
+                                              bottom: 10,
+                                              right: 10,
+                                              left: 10,
+                                            ),
+                                            child: ClipRRect(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(15)),
+                                                child: Image(
+                                                  image:
+                                                      AssetImage(images[index]),
+                                                  height: 400,
+                                                  width: 500,
+                                                  fit: BoxFit.fill,
+                                                ))),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            top: 10,
+                                            right: 10,
+                                            bottom: 10,
+                                            left: 10,
+                                          ),
+                                          child: Text(
+                                            descriptions[index],
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18,
+                                            ),
+                                          ),
                                         ),
-                                        child: ClipRRect(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(15)),
-                                            child: Image(
-                                              image: AssetImage(images[index]),
-                                              height: 400,
-                                              width: 500,
-                                              fit: BoxFit.fill,
-                                            ))),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        right: 10,
-                                        bottom: 10,
-                                      ),
-                                      child: Text(
-                                        descriptions[index],
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
+                                        SizedBox(
+                                          height: 30,
                                         ),
-                                      ),
-                                    ),
+                                      ],
+                                    )
                                   ],
-                                )
-                              ],
-                            );
+                                ));
                           })))
             ],
           )
